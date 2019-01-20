@@ -50,14 +50,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'weibo',
+        redirectTo: 'zhihu',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/my-readings/weibo',
+    redirectTo: '/my-readings/zhihu',
     pathMatch: 'full'
   }
 ];

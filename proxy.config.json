@@ -1,0 +1,11 @@
+{
+  "/zhihu": {
+    "target": "https://news-at.zhihu.com/api",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/zhihu": ""
+    }
+  }
+}

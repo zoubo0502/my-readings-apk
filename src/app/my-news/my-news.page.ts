@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyNewsPage implements OnInit {
   isAndroid = false;
-  weiboIcon = '../../assets/fonts/unselected/weibo.svg';
   initTabIcon = {
     weibo: '../../assets/fonts/unselected/weibo.svg',
     zhihu: '../../assets/fonts/unselected/zhihu.svg',

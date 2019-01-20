@@ -1,9 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>zhihu</ion-title>
-  </ion-toolbar>
+  <ion-toolbar> <ion-title>知乎热门</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-card *ngFor="let news of zhihuNews">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img [src]="news.thumbnail" />
+      </ion-thumbnail>
+      <ion-label>{{ news.title }}</ion-label>
+    </ion-item>
+  </ion-card>
 </ion-content>
