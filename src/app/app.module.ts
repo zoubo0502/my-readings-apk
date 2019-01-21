@@ -11,10 +11,11 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalPageComponent } from './component/modal-page/modal-page.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ModalPageComponent],
+  entryComponents: [ModalPageComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -23,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
       enabled: environment.production
     }),
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [
     StatusBar,
