@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class MyNewsPage implements OnInit {
   isAndroid = false;
   initTabIcon = {
-    weibo: '../../assets/fonts/unselected/weibo.svg',
-    zhihu: '../../assets/fonts/unselected/zhihu.svg',
-    nba: '../../assets/fonts/unselected/nba.svg',
-    tech: '../../assets/fonts/unselected/tech.svg'
+    weibo: 'assets/fonts/unselected/weibo.svg',
+    zhihu: 'assets/fonts/unselected/zhihu.svg',
+    nba: 'assets/fonts/unselected/nba.svg',
+    tech: 'assets/fonts/unselected/tech.svg'
   };
   tabIcon = { ...this.initTabIcon };
 
@@ -26,7 +26,7 @@ export class MyNewsPage implements OnInit {
     const tab = event.detail.tab;
     this.tabIcon = {
       ...this.initTabIcon,
-      [tab]: `../../assets/fonts/selected/${tab}.svg`
+      [tab]: `assets/fonts/selected/${tab}.svg`
     };
   }
 }

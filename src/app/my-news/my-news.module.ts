@@ -56,9 +56,8 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/my-readings/zhihu',
-    pathMatch: 'full'
+    path: '**',
+    redirectTo: '/my-readings/zhihu'
   }
 ];
 
