@@ -1,8 +1,8 @@
+import { ZhihuModalPageComponent } from './../../component/zhihu-modal-page/zhihu-modal-page.component';
 import { ZhihuService } from './../../service/zhihu.service';
 import { Component, OnInit } from '@angular/core';
 import { ZhihuNews } from 'src/app/model/ZhihuNews';
 import { ModalController } from '@ionic/angular';
-import { ModalPageComponent } from 'src/app/component/modal-page/modal-page.component';
 import { ZhihuDetails } from 'src/app/model/ZhihuDetails';
 
 @Component({
@@ -39,7 +39,7 @@ export class ZhihuPage implements OnInit {
 
   async presentModal() {
     const modal = await this.modalController.create({
-      component: ModalPageComponent,
+      component: ZhihuModalPageComponent,
       componentProps: { value: this.zhihuNewsDetails }
     });
     return await modal.present();

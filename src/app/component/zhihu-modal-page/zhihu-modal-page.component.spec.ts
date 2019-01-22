@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalPageComponent } from './modal-page.component';
+import { ZhihuModalPageComponent } from './zhihu-modal-page.component';
 
-describe('ModalPageComponent', () => {
-  let component: ModalPageComponent;
-  let fixture: ComponentFixture<ModalPageComponent>;
+describe('ZhihuModalPageComponent', () => {
+  let component: ZhihuModalPageComponent;
+  let fixture: ComponentFixture<ZhihuModalPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalPageComponent ]
+      declarations: [ ZhihuModalPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalPageComponent);
+    fixture = TestBed.createComponent(ZhihuModalPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
