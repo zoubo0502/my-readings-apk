@@ -4,10 +4,5 @@
     "cordova": {}
   },
   "type": "angular",
-  "proxies": [
-    {
-      "path": "/zhihu",
-      "proxyUrl": "https://news-at.zhihu.com/api"
-    }
-  ]
+  "proxies": []
 }

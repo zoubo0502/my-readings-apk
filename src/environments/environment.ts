@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  zhihuUrl: '/zhihu'
+  zhihuUrl: '/zhihu',
+  wangyiUrl: '/wangyi'
 };
 
 /*

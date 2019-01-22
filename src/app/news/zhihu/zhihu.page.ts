@@ -25,7 +25,6 @@ export class ZhihuPage implements OnInit {
   private getZhihuNews() {
     this.zhihuService.getHotNews().subscribe(data => {
       this.zhihuNews = data.recent;
-      console.log(this.zhihuNews[0]);
     });
   }
 

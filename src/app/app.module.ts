@@ -12,10 +12,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ZhihuModalPageComponent } from './component/zhihu-modal-page/zhihu-modal-page.component';
+import { TechModalPageComponent } from './component/tech-modal-page/tech-modal-page.component';
 
 @NgModule({
-  declarations: [AppComponent, ZhihuModalPageComponent],
-  entryComponents: [ZhihuModalPageComponent],
+  declarations: [AppComponent, ZhihuModalPageComponent, TechModalPageComponent],
+  entryComponents: [ZhihuModalPageComponent, TechModalPageComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

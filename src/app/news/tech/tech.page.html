@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tech</ion-title>
-  </ion-toolbar>
+  <ion-toolbar> <ion-title>科技新闻</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-card *ngFor="let news of wangyiNews" (click)="presentNews(news.url)">
+    <img [src]="news.imgsrc" />
+    <p>{{ news.title }}</p>
+  </ion-card>
 </ion-content>

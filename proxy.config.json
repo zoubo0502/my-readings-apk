@@ -7,5 +7,14 @@
     "pathRewrite": {
       "^/zhihu": ""
     }
+  },
+  "/wangyi": {
+    "target": "https://3g.163.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/wangyi": ""
+    }
   }
 }
