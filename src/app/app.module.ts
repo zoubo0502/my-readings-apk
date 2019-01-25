@@ -13,10 +13,11 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ZhihuModalPageComponent } from './component/zhihu-modal-page/zhihu-modal-page.component';
 import { TechModalPageComponent } from './component/tech-modal-page/tech-modal-page.component';
+import { NbaModalPageComponent } from './component/nba-modal-page/nba-modal-page.component';
 
 @NgModule({
-  declarations: [AppComponent, ZhihuModalPageComponent, TechModalPageComponent],
-  entryComponents: [ZhihuModalPageComponent, TechModalPageComponent],
+  declarations: [AppComponent, ZhihuModalPageComponent, TechModalPageComponent, NbaModalPageComponent],
+  entryComponents: [ZhihuModalPageComponent, TechModalPageComponent, NbaModalPageComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   zhihuUrl: '/zhihu',
-  wangyiUrl: '/wangyi'
+  wangyiUrl: '/wangyi',
+  hupuUrl: '/hupuIndex',
+  hupuBBSUrl: '/hupuBBS'
 };
 
 /*

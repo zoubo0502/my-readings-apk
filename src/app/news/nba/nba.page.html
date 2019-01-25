@@ -1,9 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>nba</ion-title>
-  </ion-toolbar>
+  <ion-toolbar> <ion-title>NBA News</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <div *ngFor="let item of (hupuMap | keyvalue); let i = index">
+      <ion-item-divider *ngIf="(i+1) % 5 === 0" color="white">
+      </ion-item-divider>
+      <ion-item >
+        <ion-label><a [href]="item.value">{{ item.key }}</a></ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

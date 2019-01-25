@@ -16,5 +16,23 @@
     "pathRewrite": {
       "^/wangyi": ""
     }
+  },
+  "/hupuIndex": {
+    "target": "https://nba.hupu.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/hupuIndex": ""
+    }
+  },
+  "/hupuBBS": {
+    "target": "https://bbs.hupu.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/hupuIndex": ""
+    }
   }
 }
