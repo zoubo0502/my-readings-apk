@@ -12,7 +12,7 @@ export class TechService {
   getArtList(): Observable<string> {
     return this.http.get(
       this.baseUrl +
-        '/touch/reconstruct/article/list/BA8D4A3Rwangning/10-20.html',
+        '/touch/reconstruct/article/list/BA8D4A3Rwangning/10-15.html',
       { responseType: 'text' }
     );
   }
