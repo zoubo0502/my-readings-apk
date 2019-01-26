@@ -3,7 +3,7 @@
   (swiperight)="swipeRight($event)"
   #newsTabs
 >
-  <ion-tab-bar slot="bottom" (ionTabBarChanged)="changeTab($event)">
+  <ion-tab-bar slot="bottom" (ionTabBarChanged)="changeTab($event)" >
     <ion-tab-button tab="zhihu">
       <img width="25px" height="25px" [src]="tabIcon.zhihu" />
       <ion-label>知乎</ion-label>

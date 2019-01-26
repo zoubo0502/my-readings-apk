@@ -30,7 +30,7 @@ export class TechPage implements OnInit {
   }
 
   parseStringData(data: string): any {
-    data = data.replace('artiList(', '').replace(')', '');
+    data = data.slice(9, -1);
     return JSON.parse(data);
   }
 
