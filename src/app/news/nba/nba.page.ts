@@ -10,7 +10,8 @@ import { ModalController, IonSlides } from '@ionic/angular';
 })
 export class NbaPage implements OnInit {
   hupuNewsMap = {};
-  slideNews = [];
+  slideNewspic = [];
+  slideNewsUrl = [];
 
   constructor(
     private nbaService: NbaService,
@@ -29,7 +30,8 @@ export class NbaPage implements OnInit {
 
   extractNBANews(data) {
     const matcheNews = data.match(/https:\/\/bbs.hupu.com(\S*).html/g);
-    this.slideNews = data.match(/https:\/\/w(\d*).hoopchina.com.cn(\S*).jpg/g).slice(0, 3);
+    this.slideNewsUrl = [matcheNews[0], matcheNews[1]];
+    this.slideNewspic = data.match(/https:\/\/w(\d*).hoopchina.com.cn(\S*).jpg/g).slice(0, 3);
     for (let index = 0; index < 25; index++) {
       const reg = new RegExp(`${matcheNews[index]}">(\\S*)</a>`, 'i');
       const title = data.match(reg);
@@ -37,7 +39,6 @@ export class NbaPage implements OnInit {
         this.hupuNewsMap[title[1]] = matcheNews[index];
       }
     }
-    console.log(this.slideNews);
   }
 
   presentNews(url: string) {

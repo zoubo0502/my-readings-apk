@@ -5,6 +5,6 @@
 <ion-content padding>
   <ion-card *ngFor="let news of wangyiNews" (click)="presentNews(news.url)">
     <img [src]="news.imgsrc" />
-    <h4>{{ news.title }}</h4>
+    <h5>{{ news.title }}</h5>
   </ion-card>
 </ion-content>

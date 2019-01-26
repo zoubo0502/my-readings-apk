@@ -3,15 +3,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-slides>
-      <ion-slide *ngFor="let pic of slideNews" >
-          <img [src]="pic">
-        </ion-slide>
-  </ion-slides>
+
   <ion-list>
+    <a [href]="slideNewsUrl[0]"><img [src]="slideNewspic[0]"></a> 
     <div *ngFor="let item of (hupuNewsMap | keyvalue); let i = index">
       <ion-item-divider *ngIf="(i + 1) % 5 === 0" color="white">
       </ion-item-divider>
+      <a [href]="slideNewsUrl[1]" *ngIf="i === 9"><img [src]="slideNewspic[1]"></a> 
       <ion-item>
         <ion-label
           ><a [href]="item.value">{{ item.key }}</a></ion-label>
