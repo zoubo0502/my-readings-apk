@@ -1,5 +1,30 @@
 <ion-header>
-  <ion-toolbar> <ion-title>微博热点</ion-title> </ion-toolbar>
+  <ion-toolbar> <ion-title>绕口令来了</ion-title> </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding>
+  <img src="assets/fonts/pic/raokouling.png" alt="" />
+  <ion-list>
+    <div *ngFor="let item of (raokoulings | keyvalue); let i = index">
+      <ion-item>
+        <ion-label (click)="collapseShow(i)">{{
+          item.key
+        }}</ion-label>
+      </ion-item>
+      <ion-card>
+        <ion-card-content
+          *ngIf="raokouContentShow[i]"
+          (click)="collapseShow(i)"
+        >
+          <ion-card-title class="raokou-content"
+            ><div [innerHTML]="item.value"></div
+          ></ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-button color="dark" expand="full" (click)="controlShow()">
+        {{collapsed ? '展开全部' : '仅显示标题'}}
+    </ion-button>
+  </ion-list>
+</ion-content>
+

@@ -21,7 +21,7 @@ export class MyNewsPage implements OnInit {
 
   constructor(platform: Platform, public navCtrl: NavController) {
     this.isAndroid = platform.is('android');
-    this.tabs = ['zhihu', 'weibo', 'nba', 'tech'];
+    this.tabs = ['zhihu', 'nba', 'tech', 'weibo'];
   }
 
   changeTab(event) {
