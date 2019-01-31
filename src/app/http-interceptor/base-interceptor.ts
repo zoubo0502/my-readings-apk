@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, tap, finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap, finalize } from 'rxjs/operators';
 import { LoadingController } from '@ionic/angular';
 
 @Injectable()
@@ -15,7 +15,6 @@ export class BaseInterceptor implements HttpInterceptor {
             duration: 100,
             cssClass: 'my-loading-class'
         });
-        console.log('loading...........');
         return await this.loading.present();
       }
 
@@ -25,16 +24,13 @@ export class BaseInterceptor implements HttpInterceptor {
                 event => {
                   this.presentLoading();
                   if (event instanceof HttpResponse) {
-                    console.log('success');
                   }
                 },
                 error => {
-                  console.log('failed');
                 }
               ),
             finalize(() => {
-                console.log('finalize');
-                this.loading.dismiss();
+
             })
         );
     }

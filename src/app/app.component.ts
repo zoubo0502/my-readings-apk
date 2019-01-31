@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Platform, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  backbuttonSubscription: Subscription;
   constructor(
     private platform: Platform,
     public modalCtrl: ModalController,
@@ -16,22 +18,19 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+  }
+
+  ngOnInit() {
     this.backButtonEvent();
   }
 
   backButtonEvent() {
     console.log('regtister back button');
-    this.platform.backButton.subscribe(async () => {
-      console.log('click back button');
-      // close modal
-      try {
-        const element = await this.modalCtrl.getTop();
-        if (element) {
-          element.dismiss();
-          return;
-        }
-      } catch (error) {
-        console.log(error);
+    const event = fromEvent(document, 'backbutton');
+    this.backbuttonSubscription = event.subscribe(async () => {
+      const modal = await this.modalCtrl.getTop();
+      if (modal) {
+        modal.dismiss();
       }
     });
   }
@@ -41,5 +40,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  ngOnDestroy() {
+    this.backbuttonSubscription.unsubscribe();
   }
 }
