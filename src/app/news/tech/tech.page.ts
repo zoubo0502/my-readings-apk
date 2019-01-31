@@ -25,7 +25,8 @@ export class TechPage implements OnInit {
   getWangyiTechNews(): any {
     this.techService.getArtList().subscribe(data => {
       const wangyiArtList = this.parseStringData(data) as WangyiArtList;
-      this.wangyiNews = wangyiArtList.BA8D4A3Rwangning;
+      console.log(wangyiArtList);
+      this.wangyiNews = wangyiArtList.BA8D4A3Rwangning.filter(v => v.url.includes('3g.163.com'));
     });
   }
 

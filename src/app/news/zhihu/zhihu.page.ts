@@ -1,9 +1,11 @@
+import { ZhihuTopStories } from './../../model/ZhihuTopStories';
+import { ZhihuStories } from './../../model/ZhihuStories';
 import { ZhihuModalPageComponent } from './../../component/zhihu-modal-page/zhihu-modal-page.component';
 import { ZhihuService } from './../../service/zhihu.service';
 import { Component, OnInit } from '@angular/core';
-import { ZhihuNews } from 'src/app/model/ZhihuNews';
+import { ZhihuHotNews } from 'src/app/model/ZhihuNews';
 import { ModalController } from '@ionic/angular';
-import { ZhihuDetails } from 'src/app/model/ZhihuDetails';
+import { ZhihuLatestNews } from 'src/app/model/ZhihuLatest';
 
 @Component({
   selector: 'app-zhihu',
@@ -11,35 +13,45 @@ import { ZhihuDetails } from 'src/app/model/ZhihuDetails';
   styleUrls: ['./zhihu.page.scss']
 })
 export class ZhihuPage implements OnInit {
-  zhihuNews: ZhihuNews[];
-  zhihuNewsDetails: ZhihuDetails;
+  zhihuHotNews: ZhihuHotNews[];
+  zhihuStories: ZhihuStories[];
+  zhihuTopStories: ZhihuTopStories[];
+  showAllLatest = false;
+  showAllHot = false;
   constructor(
     private zhihuService: ZhihuService,
     public modalController: ModalController
   ) {}
 
   ngOnInit() {
-    this.getZhihuNews();
+    this.getZhihuHotNews();
+    this.getZhihuLatestNews();
   }
 
-  private getZhihuNews() {
+  private getZhihuHotNews() {
     this.zhihuService.getHotNews().subscribe(data => {
-      this.zhihuNews = data.recent;
+      this.zhihuHotNews = data.recent;
     });
   }
 
-  presentNews(news: ZhihuNews) {
-    this.zhihuService.getNewsDetails(news).subscribe(data => {
-      this.zhihuNewsDetails = data;
-      console.log(this.zhihuNewsDetails);
-      this.presentModal();
+  private getZhihuLatestNews() {
+    this.zhihuService.getLatestNews().subscribe(data => {
+      this.zhihuStories = data.stories;
+      const newsId = this.zhihuStories.map(v => v.id);
+      this.zhihuTopStories = data.top_stories.filter(v => !newsId.includes(v.id));
     });
   }
 
-  async presentModal() {
+  presentNews(id: number) {
+    this.zhihuService.getNewsDetails(id).subscribe(data => {
+      this.presentModal(data);
+    });
+  }
+
+  async presentModal(data) {
     const modal = await this.modalController.create({
       component: ZhihuModalPageComponent,
-      componentProps: { value: this.zhihuNewsDetails }
+      componentProps: { value: data }
     });
     return await modal.present();
   }

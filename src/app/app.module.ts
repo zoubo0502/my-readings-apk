@@ -1,3 +1,4 @@
+import { BaseInterceptor } from './http-interceptor/base-interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -10,11 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ZhihuModalPageComponent } from './component/zhihu-modal-page/zhihu-modal-page.component';
 import { TechModalPageComponent } from './component/tech-modal-page/tech-modal-page.component';
 import { NbaModalPageComponent } from './component/nba-modal-page/nba-modal-page.component';
-
 @NgModule({
   declarations: [AppComponent, ZhihuModalPageComponent, TechModalPageComponent, NbaModalPageComponent],
   entryComponents: [ZhihuModalPageComponent, TechModalPageComponent, NbaModalPageComponent],
@@ -30,7 +30,8 @@ import { NbaModalPageComponent } from './component/nba-modal-page/nba-modal-page
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: BaseInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

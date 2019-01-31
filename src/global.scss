@@ -10,6 +10,7 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+
 .news-content {
   padding: 10px;
   background-color: rgb(45, 45, 45);
@@ -22,4 +23,11 @@
 .raokou-content {
   color: rgb(204, 204, 204);
   background-color: rgb(45, 45, 45);
+}
+
+ion-loading.my-loading-class {
+  .loading-wrapper {
+    background: transparent;
+    box-shadow: none;
+  }
 }

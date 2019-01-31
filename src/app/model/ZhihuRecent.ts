@@ -1,5 +1,5 @@
-import { ZhihuNews } from './ZhihuNews';
+import { ZhihuHotNews } from './ZhihuNews';
 
 export class ZhihuRecent {
-  recent: ZhihuNews[];
+  recent: ZhihuHotNews[];
 }

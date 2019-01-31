@@ -1,14 +1,50 @@
 <ion-header>
-  <ion-toolbar> <ion-title>知乎热门</ion-title> </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-card *ngFor="let news of zhihuNews" (click)="presentNews(news)">
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img [src]="news.thumbnail" />
-      </ion-thumbnail>
-      <ion-label>{{ news.title }}</ion-label>
-    </ion-item>
-  </ion-card>
-</ion-content>
+    <ion-toolbar> <ion-title>知乎新闻</ion-title> </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-item-divider color="white">
+      <ion-label>| 知乎最新 </ion-label>
+    </ion-item-divider>
+  
+    <div *ngFor="let news of zhihuStories; let i = index" (click)="presentNews(news.id)">
+      <ion-card *ngIf="i<5 || showAllLatest">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="news.images[0]" />
+          </ion-thumbnail>
+          <ion-label>{{ news.title }}</ion-label>
+        </ion-item>
+      </ion-card>
+    </div>
+    <div *ngFor="let news of zhihuTopStories" (click)="presentNews(news.id)">
+      <ion-card *ngIf="showAllLatest">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="news.images" />
+          </ion-thumbnail>
+          <ion-label>{{ news.title }}</ion-label>
+        </ion-item>
+      </ion-card>
+    </div>
+    <ion-button color="white" expand="full" (click)="showAllLatest=!showAllLatest">
+        {{showAllLatest ? '折叠最新' : '展开全部' }}
+    </ion-button>
+    <ion-item-divider color="white">
+      <ion-label>| 知乎热门 </ion-label>
+    </ion-item-divider>
+  <div *ngFor="let news of zhihuHotNews; let i=index" (click)="presentNews(news.news_id)">
+    <ion-card *ngIf="i<5 || showAllHot">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="news.thumbnail" />
+        </ion-thumbnail>
+        <ion-label>{{ news.title }}</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+  <ion-button color="white" expand="full" (click)="showAllHot=!showAllHot">
+      {{showAllHot ? '折叠热门' : '展开全部' }}
+  </ion-button>
+  </ion-content>
+  
